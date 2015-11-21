@@ -45,7 +45,7 @@ Plugin 'checksyntax'
 
 "C/C++
 "提供C++代码的自动补全功能
-"Plugin 'OmniCppComplete'
+"./install.sh --clang-completer
 Plugin 'Valloric/YouCompleteMe'
 
 "语法检查
