@@ -372,3 +372,10 @@ let g:vimrc_author='jz'
 let g:vimrc_email='jz@gmail.com'
 let g:vimrc_homepage='http://www.jz.cn' 
 "}
+" for ycm
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
