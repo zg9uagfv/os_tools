@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible            "不兼容vi
 filetype off
 set rtp+=~/.vim/bundle/vundle             " 将vundle路径添加到插件vim路径
@@ -8,8 +9,6 @@ call vundle#rc(path)
 
 " 将Vundle加入到bundle
 Plugin 'gmarik/vundle'
-
-filetype indent plugin on                 " 安装完后打开文件类型
 
 "-------------------------------------------------------------------------------------------
 "DongH's Plugins here:
@@ -125,7 +124,7 @@ filetype plugin on                    " enable filetype-specific plugins
 
 "-------------------------------------------------------------------------------
 "set nu       "打开行号显示
-set guifont=MonoSpace\ 20
+set guifont=MonoSpace\ 18
 
 "VIM UI {
 "设置颜色、背景等
@@ -190,8 +189,24 @@ autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWriteP
 
 
 " file encoding 编码{
+" encoding是Vim内部使用的字符编码方式，
+" 包括Vim的buffer(缓冲区)、菜单文本、消息文本等。
+" 默认是根据你的locale选择。
+" VIM用户手册上建议只在.vimrc中改变它的值，事实上似乎也只有在.vimrc中改变它的值才有意义。
+" 你可以用另外一种编码来编辑和保存文件，
+" 如你的vim的encoding为utf-8,所编辑的文件采用cp936编码,
+" vim会自动将读入的文件转成utf-8(vim的能读懂的方式），
+" 而当你写入文件时,又会自动转回成cp936（文件的保存编码)
+set fileencoding=utf-8
+set termencoding=utf-8
 set encoding=utf-8
-set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
+" fileencodings 自动探测fileencoding的顺序列表，
+" 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，
+" 并且将 fileencoding 设置为最终探测到的字符编码方式。
+" 因此最好将Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1放到最后面
+" set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
+" set fenc=utf-8 enc=utf-8 tenc=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
 set fenc=utf-8 enc=utf-8 tenc=utf-8
 scriptencoding utf-8
 " disable sound on errors
@@ -337,8 +352,8 @@ nnoremap <silent> <Leader>lt :LUTags<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omni setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocp
-filetype plugin on
+"set nocp
+"filetype plugin on
 "filetype indent on
 "let OmniCpp_GlobalScopeSearch = 1
 "let OmniCpp_NamespaceSearch = 0
