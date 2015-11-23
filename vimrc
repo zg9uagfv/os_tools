@@ -46,6 +46,7 @@ Plugin 'checksyntax'
 "提供C++代码的自动补全功能
 "./install.sh --clang-completer
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/ListToggle'
 
 "语法检查
 Plugin 'scrooloose/syntastic'
@@ -390,7 +391,9 @@ let g:vimrc_homepage='http://www.jz.cn'
 " for ycm
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
+"打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_confirm_extra_conf=0
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <F4> :YcmDiags<CR>
+"nmap <F4> :YcmDiags<CR>
