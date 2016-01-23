@@ -1,4 +1,3 @@
-set shell=/bin/bash
 set nocompatible            "不兼容vi
 filetype off
 set rtp+=~/.vim/bundle/vundle             " 将vundle路径添加到插件vim路径
@@ -9,6 +8,9 @@ call vundle#rc(path)
 
 " 将Vundle加入到bundle
 Plugin 'gmarik/vundle'
+
+filetype on                           " enable filetype detection
+filetype indent plugin on                 " 安装完后打开文件类型
 
 "-------------------------------------------------------------------------------------------
 "DongH's Plugins here:
@@ -33,12 +35,6 @@ Plugin 'UltiSnips'
 "给不同的单词高亮，表明不同的变量时很有用
 Plugin 'VirMark.vim'
 
-"自动生成/更新文件的作者信息
-Plugin 'AuthorInfo' 
-
-"一个通用的语法检查插件，支持c,js,等等
-Plugin 'checksyntax'
-
 "用来帮助缩进对齐的插件，需要的时候会很好用
 "Plugin 'Indent Guides'
 
@@ -46,26 +42,12 @@ Plugin 'checksyntax'
 "提供C++代码的自动补全功能
 "./install.sh --clang-completer
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/ListToggle'
+
+"generates a list of compiler flags from a project with an arbitrary build system
+Plugin 'rdnetto/YCM-Generator'
 
 "语法检查
 Plugin 'scrooloose/syntastic'
-
-"Script that will search for and load cscope.out databases automatically
-Plugin 'autoload_cscope.vim'
-
-"提供快速切换.h和.cpp文件的功能
-Plugin 'a.vim'
-
-
-"Python
-"提供实时检查python代码语法的功能
-Plugin 'pyflakes'
-
-
-"TOOLS
-"提供列出配色列表的功能，就不用一个个手工去敲配色名字了
-Plugin 'Color-Scheme-Explorer'
 
 "自动检测文件编码，也可以手动选择文件编码
 Plugin 'FencView.vim'
@@ -79,34 +61,12 @@ Plugin 'EasyMotion'
 "让代码更加易于纵向排版，以=或,符号对齐
 Plugin 'Tabular'
 
-"项目中所有文件的查找
-Plugin 'lookupfile'
-
-Plugin 'genutils'
-
-"Fcitx input
-Plugin 'fcitx.vim'
-
-"Indet
-"提供python的语法缩进，比默认的要好很多
-Plugin 'indentpython.vim'
-
-
-"Syntax
-Plugin 'python.vim'
-
 "indentLine 更加美观的显示缩进对齐线
 Bundle 'Yggdroot/indentLine'
 
 "color scheme
 Plugin 'Solarized'
 
-"js code"
-Plugin 'ZenCoding.vim'
-
-
-
-
 
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
@@ -118,14 +78,10 @@ Plugin 'ZenCoding.vim'
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
-filetype on                           " enable filetype detection
-filetype indent on                    " enable filetype-specific indenting
-filetype plugin on                    " enable filetype-specific plugins
-
-
 "-------------------------------------------------------------------------------
 "set nu       "打开行号显示
-set guifont=MonoSpace\ 18
+"set guifont=MonoSpace\ 30
+set guifont=Menlo:h20
 
 "VIM UI {
 "设置颜色、背景等
@@ -159,8 +115,6 @@ set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 "}
 
 
-
-
 " Formatting {
 set nowrap " wrap long lines
 set autoindent " indent at the same level of the previous line
@@ -190,24 +144,8 @@ autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWriteP
 
 
 " file encoding 编码{
-" encoding是Vim内部使用的字符编码方式，
-" 包括Vim的buffer(缓冲区)、菜单文本、消息文本等。
-" 默认是根据你的locale选择。
-" VIM用户手册上建议只在.vimrc中改变它的值，事实上似乎也只有在.vimrc中改变它的值才有意义。
-" 你可以用另外一种编码来编辑和保存文件，
-" 如你的vim的encoding为utf-8,所编辑的文件采用cp936编码,
-" vim会自动将读入的文件转成utf-8(vim的能读懂的方式），
-" 而当你写入文件时,又会自动转回成cp936（文件的保存编码)
-set fileencoding=utf-8
-set termencoding=utf-8
 set encoding=utf-8
-" fileencodings 自动探测fileencoding的顺序列表，
-" 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，
-" 并且将 fileencoding 设置为最终探测到的字符编码方式。
-" 因此最好将Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1放到最后面
-" set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
-" set fenc=utf-8 enc=utf-8 tenc=utf-8
-set fileencodings=ucs-bom,utf-8,chinese,cp936
+set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
 set fenc=utf-8 enc=utf-8 tenc=utf-8
 scriptencoding utf-8
 " disable sound on errors
@@ -264,33 +202,6 @@ noremap <silent> <Leader>be :BufExplorer<CR>
 noremap <silent> <Leader>bs :BufExplorerHorizontalSplit<CR>
 noremap <silent> <Leader>bv :BufExplorerVerticalSplit<CR>
 
-"==============================================================================
-"csope settings，设置cscope的参数内容，实现启动自动添加数据库
-"==============================================================================
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
-"ctrl+shift+- equal <C-_>
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
 "=========================================
 "NERDTree settings
 "" ---------- NERDTree [智能文件浏览器] ----------------
@@ -321,53 +232,7 @@ noremap <silent> <F2> :NERDTree<CR>      "相当于定义快捷键
 "Normal模式下，几乎所有命令前面都可以指定行数
 "Visual模式下执行命令，会对选中的特定区块进行注释/反注释
 
-
-"===================================================================
-" lookupfile setting
-"===================================================================
-let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
-let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
-let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
-let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
-let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
-if filereadable("./lookup.files")                "设置tag文件的名字
-let g:LookupFile_TagExpr = '"./lookup.files"'
-endif
-
-nmap <silent> <Leader>lf <Plug>LookupFile<CR>
-nnoremap <silent> <Leader>lb :LUBufs<CR>
-nnoremap <silent> <Leader>lw :LUWalk<CR>
-nnoremap <silent> <Leader>lt :LUTags<CR>
-
-"======================================
-"quickfix setting
-"======================================
-"noremap <silent> <Leader>cn :cn<CR>
-"noremap <silent> <Leader>cp :cp<CR>
-"noremap <silent> <Leader>cw :cw<CR>
-"noremap <silent> <Leader>cc :cc<CR>
-"noremap <silent> <Leader>co :copen<CR>
-"noremap <silent> <Leader>ce :cclose<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" omni setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set nocp
-"filetype plugin on
-"filetype indent on
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_NamespaceSearch = 0
-"let OmniCpp_DisplayMode = 0
-"let OmniCpp_ShowScopeInAbbr = 0
-"let OmniCpp_ShowPrototypeInAbbr = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_DefaultNamespaces = []
-"let OmniCpp_MayCompleteDot = 1
-"let OmniCpp_MayCompleteArrow = 1
-"let OmniCpp_MayCompleteScope = 0
-"let OmniCpp_SelectFirstItem = 0
-
+set nocp
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DoxygenToolkit setting
@@ -384,16 +249,14 @@ let g:DoxygenToolkit_licenseTag="JiuZhou own license"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AuthorInfo setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimrc_author='jz'
-let g:vimrc_email='jz@gmail.com'
-let g:vimrc_homepage='http://www.jz.cn' 
+let g:vimrc_author='zg9uagfv'
+let g:vimrc_email='zg9uagfv@gmail.com'
+let g:vimrc_homepage='http://zg9uagfv.github.com' 
 "}
 " for ycm
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
-"打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_confirm_extra_conf=0
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nmap <F4> :YcmDiags<CR>
+nmap <F4> :YcmDiags<CR>
