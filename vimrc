@@ -81,7 +81,15 @@ Plugin 'Solarized'
 "-------------------------------------------------------------------------------
 "set nu       "打开行号显示
 "set guifont=MonoSpace\ 30
-set guifont=Menlo:h20
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 16
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
 
 "VIM UI {
 "设置颜色、背景等
