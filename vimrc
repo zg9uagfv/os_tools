@@ -153,7 +153,7 @@ autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWriteP
 
 " file encoding 编码{
 set encoding=utf-8
-set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
+set fileencodings=utf-8,gb18030,cp936,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
 set fenc=utf-8 enc=utf-8 tenc=utf-8
 scriptencoding utf-8
 " disable sound on errors
