@@ -30,7 +30,11 @@ Plugin 'The-NERD-Commenter'
 Plugin 'DoxygenToolkit.vim'
 
 "提供超强的快速生成代码段的功能
-Plugin 'UltiSnips'
+"" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 "给不同的单词高亮，表明不同的变量时很有用
 Plugin 'VirMark.vim'
@@ -40,6 +44,10 @@ Plugin 'VirMark.vim'
 
 "C/C++
 "提供C++代码的自动补全功能
+"cd ~/.vim/bundle
+"git clone https://github.com/Valloric/YouCompleteMe.git
+"cd YouCompleteMe
+"git submodule update --init --recursive
 "./install.sh --clang-completer
 Plugin 'Valloric/YouCompleteMe'
 
@@ -66,6 +74,14 @@ Bundle 'Yggdroot/indentLine'
 
 "color scheme
 Plugin 'Solarized'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+
+
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
 
 
 "-------------------------------------------------------------------------------
@@ -95,56 +111,90 @@ endif
 "设置颜色、背景等
 syntax on                             " syntax highlight
 syntax enable
-set t_Co=256
+" 配色方案
 set background=dark
 colorscheme solarized
+"colorscheme molokai
+"
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-set cursorline " highlight current line
-set backspace=indent,eol,start " backspace for dummies
-set linespace=0 " No extra spaces between rows
-set nu " Line numbers on
-set showmatch " show matching brackets/parenthesis
-set incsearch " find as you type search
-set hlsearch " highlight search terms
-set winminheight=0 " windows can be 0 line high
-set ignorecase " case insensitive search
-set smartcase " case sensitive when uc present
-set wildmenu " show list instead of just completing
-set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,] " backspace and cursor keys wrap to
-set scrolljump=5 " lines to scroll when cursor leaves screen
-set scrolloff=3 " minimum lines to keep above and below cursor
-set foldenable " auto fold code
-set list
-set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
-"}
 
+" 禁止光标闪烁
+set gcr=a:block-blinkon0
 
-" Formatting {
-set nowrap " wrap long lines
-set autoindent " indent at the same level of the previous line
-set shiftwidth=4 " use indents of 4 spaces
-set expandtab " tabs are spaces, not tabs
-set tabstop=4 " an indentation every four columns
-set softtabstop=4 " let backspace delete indent
-"set matchpairs+=<:> " match, to be used with %
-set pastetoggle=<F12> " pastetoggle (sane indentation on pastes)
-set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
-set completeopt=longest,menu          "设置单词自动补全选项
-set number                            "行号显示
+" 禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
+" 禁止显示菜单和工具条
+set guioptions-=m
+set guioptions-=T
+
+" highlight current line
+set cursorline
+
+" show matching brackets/parenthesis
+set showmatch
+
+" find as you type search
+set incsearch
+
+" 高亮显示搜索结果
+set hlsearch
+
+" use indents of 4 spaces
+set shiftwidth=4
+
+" 将制表符扩展为空格
+set expandtab
+
+" 设置编辑时制表符占用空格数
+set tabstop=4
+
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
+
+" auto format comment blocks
+set comments=sl:/*,mb:*,elx:*/
+
+" 总是显示状态栏
+set laststatus=2
+
+" 显示光标当前位置
+set ruler
+
+" 开启行号显示
+set number
+
+" 高亮显示当前行/列
+set cursorline
+set cursorcolumn
+
+" 代码折叠
+
+" 基于缩进或语法进行代码折叠
+set foldmethod=syntax
+
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+
+" *.cpp 和 *.h 间切换
+nmap <silent> <Leader>sw :FSHere<cr>
+
 set numberwidth=4
-set history=1000                      " keep 1000 lines of command line history
-set ruler                             " show the cursor position all the time
-set autoread                          " auto read when file is changed from outside
-set noswapfile
-set nobackup                          " no *~ backup files
-set nowb
-set copyindent                        " copy the previous indentation on autoindenting
-set cindent                           " C语言智能缩进
-set textwidth=80                      " 设置一行字符宽度
+
+" show the cursor position all the time
+set ruler
+
+" auto read when file is changed from outside
+set autoread
+
+" 设置一行字符宽度
+set textwidth=80
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
@@ -199,6 +249,50 @@ let Tlist_Exit_OnlyWindow=1    "当taglist窗口是最后一个窗口时，退�
 let Tlist_Use_Right_Window=1   "taglist窗口显示在右侧
 noremap <silent> <F6> :TlistToggle<CR>      "相当于定义快捷键
 noremap <silent> <Leader>tt :TlistToggle<CR>  "定义第二个快捷键
+" 设置 tagbar 子窗口的位置出现在主编辑区的左边
+let tagbar_left=1
+" 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
+nnoremap <Leader>ilt :TagbarToggle<CR>
+" 设置标签子窗口的宽度
+let tagbar_width=32
+" tagbar 子窗口中不显示冗余帮助信息
+let g:tagbar_compact=1
+" 设置 ctags 对哪些代码标识符生成标签
+let g:tagbar_type_cpp = {
+     \ 'ctagstype' : 'c++',
+     \ 'kinds'     : [
+         \ 'c:classes:0:1',
+         \ 'd:macros:0:1',
+         \ 'e:enumerators:0:0', 
+         \ 'f:functions:0:1',
+         \ 'g:enumeration:0:1',
+         \ 'l:local:0:1',
+         \ 'm:members:0:1',
+         \ 'n:namespaces:0:1',
+         \ 'p:functions_prototypes:0:1',
+         \ 's:structs:0:1',
+         \ 't:typedefs:0:1',
+         \ 'u:unions:0:1',
+         \ 'v:global:0:1',
+         \ 'x:external:0:1'
+     \ ],
+     \ 'sro'        : '::',
+     \ 'kind2scope' : {
+         \ 'g' : 'enum',
+         \ 'n' : 'namespace',
+         \ 'c' : 'class',
+         \ 's' : 'struct',
+         \ 'u' : 'union'
+     \ },
+     \ 'scope2kind' : {
+         \ 'enum'      : 'g',
+         \ 'namespace' : 'n',
+         \ 'class'     : 'c',
+         \ 'struct'    : 's',
+         \ 'union'     : 'u'
+     \ }
+\ }
+
 "==========================================================================
 "BufExplore setting，设置bufexplorer插件的选项，进行定制
 "==========================================================================
@@ -226,6 +320,19 @@ noremap <silent> <Leader>bv :BufExplorerVerticalSplit<CR>
 "q                       --退出该插件
 "nmap <silent> <leader>t :NERDTree<cr>
 noremap <silent> <F2> :NERDTree<CR>      "相当于定义快捷键
+" 工程文件浏览
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <Leader>fl :NERDTreeToggle<CR>
+" 设置 NERDTree 子窗口宽度
+let NERDTreeWinSize=22
+" 设置 NERDTree 子窗口位置
+let NERDTreeWinPos="right"
+" 显示隐藏文件
+let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
 
 
 "=========================================
@@ -245,27 +352,72 @@ set nocp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DoxygenToolkit setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:DoxygenToolkit_undocTag="DOXIGEN_SKIP_BLOCK"
+" For example, my .vimrc contains:
 let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
 let g:DoxygenToolkit_paramTag_pre="@Param "
 let g:DoxygenToolkit_returnTag="@Returns   "
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="JiuZhou"
-let g:DoxygenToolkit_licenseTag="JiuZhou own license"
+let g:DoxygenToolkit_authorName="xxx"
+let g:DoxygenToolkit_licenseTag="xxx"
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" AuthorInfo setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimrc_author='zg9uagfv'
-let g:vimrc_email='zg9uagfv@gmail.com'
-let g:vimrc_homepage='http://zg9uagfv.github.com' 
 "}
+" ycm_config{
 " for ycm
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <F4> :YcmDiags<CR>
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" 模板补全
+" UltiSnips 的 tab 键与 YCM 冲突，重新设定
+let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+
+" YCM 补全菜单配色
+" 菜单
+highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+" 选中项
+highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+
+" 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
+let g:ycm_confirm_extra_conf=0
+
+" 从第一个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1
+
+" 禁止缓存匹配项，每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+"}
+"
+"
+"
+"
+"" ################### 自动补全 ###################
+
+" 代码自动补全
+"迄今为止用到的最好的自动VIM自动补全插件
+"重启 :YcmRestartServer
+"youcompleteme  默认tab  s-tab 和自动补全冲突
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
+let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+"let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+
+" 跳转到定义处, 分屏打开
+let g:ycm_goto_buffer_command = 'horizontal-split'
+" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+
+let g:ycm_global_ycm_extra_conf = "./.ycm_extra_conf.py"
