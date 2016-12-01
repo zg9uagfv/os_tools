@@ -83,6 +83,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'derekwyatt/vim-fswitch'
 
+"go language
+Plugin 'fatih/vim-go'
+
+"zen coding
+Plugin 'mattn/emmet-vim'
 
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
@@ -421,3 +426,11 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
 let g:ycm_global_ycm_extra_conf = "./.ycm_extra_conf.py"
+
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
