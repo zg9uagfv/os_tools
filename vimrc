@@ -49,7 +49,7 @@ Plugin 'VirMark.vim'
 "cd YouCompleteMe
 "git submodule update --init --recursive
 "./install.sh --clang-completer
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 "generates a list of compiler flags from a project with an arbitrary build system
 Plugin 'rdnetto/YCM-Generator'
@@ -182,7 +182,7 @@ set cursorcolumn
 " 代码折叠
 
 " 基于缩进或语法进行代码折叠
-set foldmethod=syntax
+"set foldmethod=syntax
 
 " 启动 vim 时关闭折叠代码
 set nofoldenable
