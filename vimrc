@@ -89,6 +89,9 @@ Plugin 'fatih/vim-go'
 "zen coding
 Plugin 'mattn/emmet-vim'
 
+"安装tagbar插件  
+Bundle 'majutsushi/tagbar'  
+
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
@@ -249,6 +252,11 @@ map zh zH
 "=====================================================================
 "taglist option，设置taglist插件的选项，进行定制
 "=====================================================================
+
+"设置tagbar使用的ctags的插件,必须要设置对  
+let g:tagbar_ctags_bin='/usr/bin/ctags'  
+"打开文件自动 打开tagbar  
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  
 let Tlist_Show_One_File=1      "只显示一个文件的tags
 let Tlist_Exit_OnlyWindow=1    "当taglist窗口是最后一个窗口时，退出vim
 let Tlist_Use_Right_Window=1   "taglist窗口显示在右侧
@@ -425,7 +433,7 @@ let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
-let g:ycm_global_ycm_extra_conf = "./.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "/home/dl/.vim/bundle/Plugin/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 
 let g:go_highlight_functions = 1
