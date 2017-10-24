@@ -1,5 +1,6 @@
 set nocompatible            "不兼容vi
 filetype off
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
 set rtp+=~/.vim/bundle/vundle             " 将vundle路径添加到插件vim路径
 
 " pass a path where Vundle should install plugins
