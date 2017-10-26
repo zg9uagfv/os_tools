@@ -6,6 +6,7 @@ sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnom
 sudo apt-get remove onboard deja-dup  
 
 #---baisc---#
+sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install git-core subversion build-essential cmake
 sudo apt-get install openssh-server  
 
