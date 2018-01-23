@@ -7,7 +7,7 @@ sudo apt-get remove onboard deja-dup
 
 #---baisc---#
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install build-essential git-core subversion cmake automake autoconf openssh-server -y
+sudo apt-get install vim-gtk build-essential git-core subversion cmake automake autoconf openssh-server -y
 
 #---Zeal---#
 sudo add-apt-repository ppa:zeal-developers/ppa
@@ -18,6 +18,11 @@ sudo apt-get install zeal
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update
 sudo apt install albert
+
+#shaow-socks qt5
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
 
 #---java----#
 sudo add-apt-repository ppa:webupd8team/java    
