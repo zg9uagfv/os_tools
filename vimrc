@@ -1,6 +1,6 @@
 set nocompatible            "不兼容vi
 filetype off
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
 set rtp+=~/.vim/bundle/vundle             " 将vundle路径添加到插件vim路径
 
 " pass a path where Vundle should install plugins
@@ -101,6 +101,7 @@ Plugin 'tpope/vim-commentary'
 
 " Airline: 小巧美观的状态栏。
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Tabular: 自动对齐。
 Plugin 'godlygeek/tabular'
@@ -455,3 +456,27 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 "let g:go_highlight_build_constraints = 1
+
+"#安装vim-airline
+let g:airline_theme="luna"
+"这个是安装字体后 必须设置此项"
+"let g:airline_theme="kolor"
+let g:airline_powerline_fonts = 1 
+set laststatus=2  "永远显示状态栏
+set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
+"打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
+let g:airline#extensions#tabline#enabled = 1 
+let g:airline#extensions#tabline#buffer_nr_show = 1 
+
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+
+" 关闭状态显示空白符号计数,这个对我用处不大"
+let g:airline#extensions#whitespace#enabled = 0 
+let g:airline#extensions#whitespace#symbol = '!'
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
