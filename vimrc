@@ -91,7 +91,19 @@ Plugin 'fatih/vim-go'
 Plugin 'mattn/emmet-vim'
 
 "安装tagbar插件  
-Bundle 'majutsushi/tagbar'  
+Plugin 'majutsushi/tagbar'  
+
+" Fugitive: Git 集成，强烈推荐！
+Plugin 'tpope/vim-fugitive'
+
+" Commentary: 快速注释。
+Plugin 'tpope/vim-commentary'
+
+" Airline: 小巧美观的状态栏。
+Plugin 'bling/vim-airline'
+
+" Tabular: 自动对齐。
+Plugin 'godlygeek/tabular'
 
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
