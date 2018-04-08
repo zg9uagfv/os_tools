@@ -12,17 +12,17 @@ sudo apt-get install vim-gtk build-essential git-core subversion cmake automake 
 #---Zeal---#
 sudo add-apt-repository ppa:zeal-developers/ppa
 sudo apt-get update
-sudo apt-get install zeal
+sudo apt-get install zeal -y
 
 #---albert---#
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update
-sudo apt install albert
+sudo apt install albert -y
 
 #shaow-socks qt5
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
 sudo apt-get update
-sudo apt-get install shadowsocks-qt5
+sudo apt-get install shadowsocks-qt5 -y
 
 #---java----#
 sudo add-apt-repository ppa:webupd8team/java    
@@ -43,7 +43,7 @@ sudo add-apt-repository ppa:numix/ppa
 sudo apt-get update
 sudo apt-get install numix-gtk-theme numix-icon-theme-circle numix-wallpaper-* -y
 
-sudo apt-get install fonts-wqy-microhei
+sudo apt-get install fonts-wqy-microhei -y
 
 sudo apt-get install shutter -y
 
@@ -58,3 +58,9 @@ sudo apt-get update
 sudo apt-get -y install docker-ce
 
 sudo apt-get install terminator guake -y
+
+#Ubuntu下使用Monaco字体
+curl -kL https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh | bash
+
+
+
