@@ -62,5 +62,22 @@ sudo apt-get install terminator guake -y
 #Ubuntu下使用Monaco字体
 curl -kL https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh | bash
 
+# update nvidia
+sudo add-apt-repository ppa:xorg-edgers/ppa #添加ppa源
+sudo add-apt-repository ppa:graphics-drivers/ppa #添加ppa源
+sudo apt-get update #更新apt-get
 
+#安装SMPlayer
+sudo apt-get install smplayer -y
+#安装vlc播放器
+sudo apt-get install vlc -y
+#安装mpv播放器
+sudo apt-get install mpv -y
 
+#zeal
+sudo add-apt-repository ppa:zeal-developers/ppa
+sudo apt-get update
+sudo apt-get install zeal -y
+
+#系统记录清理工具
+sudo apt install bleachbit -y
