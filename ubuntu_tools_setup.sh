@@ -81,3 +81,5 @@ sudo apt-get install zeal -y
 
 #系统记录清理工具
 sudo apt install bleachbit -y
+
+sudo apt install goldendict -y
