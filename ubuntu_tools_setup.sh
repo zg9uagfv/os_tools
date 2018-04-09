@@ -82,4 +82,11 @@ sudo apt-get install zeal -y
 #系统记录清理工具
 sudo apt install bleachbit -y
 
+#Markdown typora
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+sudo add-apt-repository 'deb https://typora.io linux/'
+sudo apt-get update
+sudo apt-get install typora
+
+#Golden dict
 sudo apt install goldendict -y
