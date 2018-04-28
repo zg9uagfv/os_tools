@@ -1,45 +1,45 @@
 #!/bin/sh
 
 #---delete something---#
-sudo apt-get remove libreoffice-common unity-webapps-common
-sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install 
-sudo apt-get remove onboard deja-dup  
+sudo apt-get remove libreoffice-common unity-webapps-common -y
+sudo apt-get remove -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install 
+sudo apt-get remove onboard deja-dup -y
 
 #---baisc---#
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install vim-gtk build-essential git-core subversion cmake automake autoconf openssh-server -y
 
 #---Zeal---#
-sudo add-apt-repository ppa:zeal-developers/ppa
+sudo add-apt-repository ppa:zeal-developers/ppa -y
 sudo apt-get update
 sudo apt-get install zeal -y
 
 #---albert---#
-sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo add-apt-repository ppa:nilarimogard/webupd8 -y
 sudo apt update
 sudo apt install albert -y
 
 #shaow-socks qt5
-sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo add-apt-repository ppa:hzwhuang/ss-qt5 -y
 sudo apt-get update
 sudo apt-get install shadowsocks-qt5 -y
 
 #---java----#
-sudo add-apt-repository ppa:webupd8team/java    
+sudo add-apt-repository ppa:webupd8team/java -y   
 sudo apt-get update    
-sudo apt-get install oracle-java8-installer
+sudo apt-get install oracle-java8-installer -y
 
 #first
 sudo apt-get install unity-tweak-tool -y
 
 #flatabulous主题安装
 
-sudo add-apt-repository ppa:noobslab/themes
+sudo add-apt-repository ppa:noobslab/themes -y
 sudo apt-get update
 sudo apt-get install flatabulous-theme -y
 
 #numix图标
-sudo add-apt-repository ppa:numix/ppa
+sudo add-apt-repository ppa:numix/ppa -y
 sudo apt-get update
 sudo apt-get install numix-gtk-theme numix-icon-theme-circle numix-wallpaper-* -y
 
@@ -53,7 +53,7 @@ sudo apt-get install redshift -y
 #docker
 sudo apt-get -y install apt-transport-https ca-certificates curl
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 sudo apt-get update
 sudo apt-get -y install docker-ce
 
@@ -66,8 +66,8 @@ sudo ./install-font-ubuntu.sh https://github.com/todylu/monaco.ttf/blob/master/m
 rm ./install-font-ubuntu.sh
 
 # update nvidia
-sudo add-apt-repository ppa:xorg-edgers/ppa #添加ppa源
-sudo add-apt-repository ppa:graphics-drivers/ppa #添加ppa源
+sudo add-apt-repository ppa:xorg-edgers/ppa -y #添加ppa源
+sudo add-apt-repository ppa:graphics-drivers/ppa -y #添加ppa源
 sudo apt-get update #更新apt-get
 
 #安装SMPlayer
@@ -78,7 +78,7 @@ sudo apt-get install vlc -y
 sudo apt-get install mpv -y
 
 #zeal
-sudo add-apt-repository ppa:zeal-developers/ppa
+sudo add-apt-repository ppa:zeal-developers/ppa -y
 sudo apt-get update
 sudo apt-get install zeal -y
 
@@ -87,9 +87,9 @@ sudo apt install bleachbit -y
 
 #Markdown typora
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-sudo add-apt-repository 'deb https://typora.io linux/'
+sudo add-apt-repository 'deb https://typora.io linux/' -y
 sudo apt-get update
-sudo apt-get install typora
+sudo apt-get install typora -y
 
 #Golden dict
 sudo apt install goldendict -y
@@ -155,7 +155,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev -y
 
 
 #tensorflow
-sudo apt-get install python-pip python-dev
+sudo apt-get install python-pip python-dev -y
 #pip install \
 #  -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
 #  https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp27-none-linux_x86_64.whl
@@ -163,6 +163,7 @@ sudo apt-get install python-pip python-dev
 
 
 #Torch
+sudo apt-get install libreadline-dev -y
 cd /tmp
 git clone https://github.com/torch/distro.git ~/torch --recursive
 cd ~/torch; bash install-deps;
