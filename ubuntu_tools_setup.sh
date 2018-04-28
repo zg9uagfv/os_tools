@@ -60,7 +60,8 @@ sudo apt-get -y install docker-ce
 sudo apt-get install terminator guake -y
 
 #Ubuntu下使用Monaco字体
-curl -kL https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh
+wget -c https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh
+chmod +x ./install-font-ubuntu.sh
 sudo ./install-font-ubuntu.sh https://github.com/todylu/monaco.ttf/blob/master/monaco.ttf?raw=true
 rm ./install-font-ubuntu.sh
 
@@ -148,3 +149,23 @@ sudo -H pip3 install -U pip numpy
 #sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 #sudo ldconfig
 
+#caffe
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler -y
+sudo apt-get install --no-install-recommends libboost-all-dev -y
+
+
+#tensorflow
+sudo apt-get install python-pip python-dev
+#pip install \
+#  -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
+#  https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp27-none-linux_x86_64.whl
+
+
+
+#Torch
+cd /tmp
+git clone https://github.com/torch/distro.git ~/torch --recursive
+cd ~/torch; bash install-deps;
+export TORCH_NVCC_FLAGS="-D__CUDA_NO_HALF_OPERATORS__"
+./install.sh
+source ~/.bashrc
