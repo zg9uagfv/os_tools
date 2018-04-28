@@ -2,8 +2,8 @@
 
 #---delete something---#
 sudo apt-get remove libreoffice-common unity-webapps-common -y
-sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install -y 
-sudo apt-get remove onboard deja-dup -y  
+sudo apt-get remove -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install 
+sudo apt-get remove onboard deja-dup -y
 
 #---baisc---#
 sudo apt-get update && sudo apt-get upgrade -y
@@ -25,7 +25,7 @@ sudo apt-get update
 sudo apt-get install shadowsocks-qt5 -y
 
 #---java----#
-sudo add-apt-repository ppa:webupd8team/java -y 
+sudo add-apt-repository ppa:webupd8team/java -y   
 sudo apt-get update    
 sudo apt-get install oracle-java8-installer -y
 
@@ -51,16 +51,17 @@ sudo apt-get install shutter -y
 sudo apt-get install redshift -y
 
 #docker
-sudo apt-get -y install apt-transport-https ca-certificates curl -y
+sudo apt-get -y install apt-transport-https ca-certificates curl
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 sudo apt-get update
-sudo apt-get -y install docker-ce -y
+sudo apt-get -y install docker-ce
 
 sudo apt-get install terminator guake -y
 
 #Ubuntu下使用Monaco字体
-curl -kL https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh
+wget -c https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh
+chmod +x ./install-font-ubuntu.sh
 sudo ./install-font-ubuntu.sh https://github.com/todylu/monaco.ttf/blob/master/monaco.ttf?raw=true
 rm ./install-font-ubuntu.sh
 
@@ -148,3 +149,23 @@ sudo -H pip3 install -U pip numpy
 #sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 #sudo ldconfig
 
+#caffe
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler -y
+sudo apt-get install --no-install-recommends libboost-all-dev -y
+
+
+#tensorflow
+sudo apt-get install python-pip python-dev -y
+#pip install \
+#  -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
+#  https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp27-none-linux_x86_64.whl
+
+
+
+#Torch
+sudo apt-get install libreadline-dev -y
+cd /tmp
+git clone https://github.com/torch/distro.git ~/torch --recursive
+cd ~/torch; bash install-deps;
+./install.sh
+source ~/.bashrc
