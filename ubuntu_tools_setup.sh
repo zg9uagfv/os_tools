@@ -156,6 +156,11 @@ sudo apt-get install --no-install-recommends libboost-all-dev -y
 
 #tensorflow
 sudo apt-get install python-pip python-dev -y
+sudo apt-get -y install ipython ipython-notebook -y
+sudo -H pip2 install --upgrade pip
+sudo -h pip2 install jupyter
+sudo -H pip3 install --upgrade pip
+sudo -h pip3 install jupyter
 #pip install \
 #  -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
 #  https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp27-none-linux_x86_64.whl
