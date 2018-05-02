@@ -21,3 +21,6 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D INSTALL_C_EXAMPLES=OFF \
     -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.0/modules \
     -D BUILD_EXAMPLES=ON ../opencv-3.4.0/ && make -j8 && sudo make install
+sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
+sudo ldconfig
+
