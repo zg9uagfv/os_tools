@@ -151,6 +151,7 @@ sudo -H pip3 install -U pip numpy
 
 #caffe
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler -y
+sudo apt install liblmdb-dev -y
 sudo apt-get install --no-install-recommends libboost-all-dev -y
 
 
