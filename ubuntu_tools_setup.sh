@@ -15,6 +15,7 @@ sudo apt-get update
 sudo apt-get install zeal -y
 
 #---albert---#
+#ubuntu-18.04 https://albertlauncher.github.io/docs/installing/
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y
 sudo apt update
 sudo apt install albert -y
