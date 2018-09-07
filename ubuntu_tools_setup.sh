@@ -95,6 +95,9 @@ sudo apt-get install typora -y
 #Golden dict
 sudo apt install goldendict -y
 
+#使用mosh替代ssh
+sudo apt-get install mosh
+
 #Opencv-3.4.0
 sudo apt-get remove x264 libx264-dev -y
 sudo apt-get install build-essential checkinstall cmake pkg-config yasm -y
