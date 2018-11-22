@@ -55,3 +55,18 @@
   
   thread apply all bt full
 
+## ap安装Nvidia显卡驱动
+
+sudo apt-get purge nvidia*
+
+sudo add-apt-repository ppa:graphics-drivers
+
+sudo apt-get update
+
+sudo apt-cache search nvidia 
+
+### 安装推荐的显卡驱动 
+
+ubuntu-drivers devices
+
+sudo apt-get install nvidia-xxx nvidia-settings nvidia-prime
