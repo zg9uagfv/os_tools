@@ -82,3 +82,30 @@ sudo apt-get install uget
 
 sudo apt-get install aria2
 
+### zeal加入pytorch和tensorflow
+
+#### 加入pytorch
+
+git clone https://github.com/pytorch/pytorch.git  # Get the full repo down
+
+cd pytorch/docs/
+
+git checkout v0.2.0
+
+. ~/env3/bin/activate # Or whatever you are using for a VirtualEnv
+
+pip install -r requirements.txt
+
+pip install doc2dash
+
+make docset
+
+cp -r PyTorch.docset ~/.local/share/Zeal/Zeal/docsets/
+
+#### 加入tensorflow
+
+cd ~/.local/share/Zeal/Zeal/docsets/
+
+curl -L -O https://github.com/ppwwyyxx/dash-docset-tensorflow/releases/download/1.xx.xx/TensorFlow-1.xx.xx.tgz
+
+tar -xzf TensorFlow-1.xx.0.tgz
