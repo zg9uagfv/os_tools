@@ -70,3 +70,13 @@ sudo apt-cache search nvidia
 ubuntu-drivers devices
 
 sudo apt-get install nvidia-xxx nvidia-settings nvidia-prime
+
+
+### uGet下载工具
+sudo add-apt-repository ppa:plushuang-tw/uget-stable
+sudo add-apt-repository ppa:t-tujikawa/ppa
+# 这里是uGet的客户端
+sudo apt-get install uget 
+# 这里是待会要用的下载方式
+sudo apt-get install aria2
+
