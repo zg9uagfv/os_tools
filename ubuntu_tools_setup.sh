@@ -9,6 +9,10 @@ sudo apt-get remove onboard deja-dup -y
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install vim-gtk build-essential git-core subversion cmake automake autoconf openssh-server -y
 
+#---mathpix-snipping-tool---#
+截图并生成Markdown的数学公式
+https://snapcraft.io/mathpix-snipping-tool
+
 #---Zeal---#
 sudo add-apt-repository ppa:zeal-developers/ppa -y
 sudo apt-get update
