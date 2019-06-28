@@ -55,6 +55,13 @@ sudo apt-get install shutter -y
 #根据日出日落时间(设定经纬度)自动调节电脑屏幕的亮度、色彩(色温)，保护眼睛
 sudo apt-get install redshift -y
 
+#自动更换壁纸
+#For Ubuntu, a PPA is also available that backports newer releases to LTS & stable:
+sudo add-apt-repository ppa:peterlevi/ppa
+sudo apt-get update
+sudo apt-get install variety variety-slideshow
+
+
 #docker
 sudo apt-get -y install apt-transport-https ca-certificates curl
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
