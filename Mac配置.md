@@ -32,6 +32,7 @@ $ source ~/.bash_profile
 ## CheatSheet：快捷键提示
 
 ## Xmind ZEN
+- https://www.xmind.net/zen/
 
 ## Alfred
   1. 用关键词「g」开头，空格后加入要搜索的关键词，就能自动打开默认浏览器去到谷歌的搜索结果页
