@@ -55,7 +55,7 @@
   
   thread apply all bt full
 
-## ap安装Nvidia显卡驱动
+## apt安装Nvidia显卡驱动
 
 sudo apt-get purge nvidia*
 
@@ -63,7 +63,12 @@ sudo add-apt-repository ppa:graphics-drivers
 
 sudo apt-get update
 
-sudo apt-cache search nvidia 
+sudo apt-cache search nvidia ap安装Nvidia显卡驱动
+sudo apt-get purge nvidia*
+
+sudo add-apt-repository ppa:graphics-drivers
+
+
 
 ### 安装推荐的显卡驱动 
 
