@@ -61,6 +61,8 @@ sudo add-apt-repository ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install variety variety-slideshow
 
+#youtube-dl交互式
+npm install -g youtube-dl-interactive
 
 #docker
 sudo apt-get -y install apt-transport-https ca-certificates curl
