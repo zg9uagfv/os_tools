@@ -56,7 +56,8 @@ $ source ~/.bash_profile
 
 ## google chrome
 
-## iTerm
+## iTerm2
+启动 iTerm2 后按 ⌘+enter 全屏，然后 ⌘+\ 隐藏它，这时候就可以做别的事情去了。任何时间想再用 iTerm2 只需要按 ⌘+\ 即可
 
 ## Alfred
 
