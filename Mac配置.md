@@ -38,4 +38,18 @@ $ source ~/.bash_profile
   1. 用关键词「g」开头，空格后加入要搜索的关键词，就能自动打开默认浏览器去到谷歌的搜索结果页
   2. 用关键词「wiki」开头，加入关键词可以直达 wiki 的搜索结果页
 
+## dash
+
+## google chrome
+
+## iTerm
+
+## Alfred
+
+## TeamView
+
+## Irvue
+
+## 欧路词典
+
 
