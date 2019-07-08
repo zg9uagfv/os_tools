@@ -1,8 +1,5 @@
 # 安装ubuntu相关软件的脚本
 
-## vscode sync
-d42715007b2e27be3c8a763e90dbdee8575b0081
-
 ## .bashrc文件中加入一下几行代码
   
   alias mv='mv -i'
