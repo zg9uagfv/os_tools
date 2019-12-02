@@ -31,9 +31,10 @@ sudo apt-get update
 sudo apt-get install shadowsocks-qt5 -y
 
 #---java----#
-sudo add-apt-repository ppa:webupd8team/java -y   
-sudo apt-get update    
-sudo apt-get install oracle-java8-installer -y
+sudo add-apt-repository ppa:linuxuprising/java
+sudo apt install oracle-java13-installer
+sudo apt install oracle-java13-set-default
+java -version
 
 #first
 sudo apt-get install unity-tweak-tool -y
