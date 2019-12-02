@@ -19,9 +19,11 @@ sudo apt-get install zeal -y
 
 #---albert---#
 #ubuntu-18.04 https://albertlauncher.github.io/docs/installing/
-sudo add-apt-repository ppa:nilarimogard/webupd8 -y
-sudo apt update
-sudo apt install albert -y
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
+wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_18.04/Release.key -O Release.key
+sudo apt-key add - < Release.key
+sudo apt-get update
+sudo apt-get install albert
 
 #shaow-socks qt5
 sudo add-apt-repository ppa:hzwhuang/ss-qt5 -y
