@@ -1,5 +1,11 @@
 # 安装ubuntu相关软件的脚本
 
+## pip加入清华镜像(python3)
+
+  pip3 install pip -U
+  
+  pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 ## .bashrc文件中加入一下几行代码
   
   alias mv='mv -i'
