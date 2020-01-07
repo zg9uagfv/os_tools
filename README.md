@@ -2,6 +2,8 @@
 
 ## pip加入清华镜像(python3)
 
+  sudo apt install python3-pip
+
   pip3 install pip -U
   
   pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
