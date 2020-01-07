@@ -91,10 +91,18 @@ sudo apt-get update #更新apt-get
 
 #安装SMPlayer
 sudo apt-get install smplayer -y
+
 #安装vlc播放器
 sudo apt-get install vlc -y
+
 #安装mpv播放器
 sudo apt-get install mpv -y
+
+#wps office
+https://www.wps.cn/product/wpslinux#
+
+#sogou input
+https://pinyin.sogou.com/linux/?r=pinyin
 
 #zeal
 sudo add-apt-repository ppa:zeal-developers/ppa -y
