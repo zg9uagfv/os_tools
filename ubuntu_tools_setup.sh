@@ -64,6 +64,9 @@ sudo apt-get update
 sudo apt-get install variety variety-slideshow
 
 #youtube-dl交互式
+
+sudo apt install npm
+
 npm install -g youtube-dl-interactive
 
 #docker
