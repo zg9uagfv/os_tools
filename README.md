@@ -8,6 +8,12 @@
   
   pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
+## 更新conda镜像
+  
+  conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  
+  conda config --set show_channel_urls yes
+
 ## .bashrc文件中加入一下几行代码
   
   alias mv='mv -i'
