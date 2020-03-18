@@ -9,6 +9,14 @@ sudo apt-get remove onboard deja-dup -y
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install vim-gtk build-essential git-core subversion cmake automake autoconf openssh-server -y
 
+#---gnome-tweak-tool---#
+sudo apt install gnome-tweak-tool
+# 安装扩展
+sudo apt install gnome-shell-extensions
+# alt+f2 r 回车
+# 安装浏览器扩展工具
+sudo apt install chrome-gnome-shell
+
 #---mathpix-snipping-tool---#截图并生成Markdown的数学公式
 https://snapcraft.io/mathpix-snipping-tool
 
