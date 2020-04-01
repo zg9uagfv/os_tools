@@ -45,6 +45,8 @@ Plugin 'VirMark.vim'
 
 "C/C++
 "提供C++代码的自动补全功能
+"安装依赖
+"sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
 "cd ~/.vim/bundle
 "git clone https://github.com/Valloric/YouCompleteMe.git
 "cd YouCompleteMe
