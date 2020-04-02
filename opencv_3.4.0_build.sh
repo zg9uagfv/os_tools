@@ -1,4 +1,7 @@
 #!/bin/sh
+
+## 新版参考地址 https://docs.opencv.org/4.1.2/d7/d9f/tutorial_linux_install.html
+
 sudo apt-get install build-essential -y
 sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev -y
 
