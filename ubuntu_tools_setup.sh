@@ -20,6 +20,9 @@ sudo apt install chrome-gnome-shell
 #---mathpix-snipping-tool---#截图并生成Markdown的数学公式
 https://snapcraft.io/mathpix-snipping-tool
 
+#v2raya
+https://github.com/mzz2017/V2RayA/wiki/Usage#debianubuntu
+
 #---Zeal---#
 sudo add-apt-repository ppa:zeal-developers/ppa -y
 sudo apt-get update
