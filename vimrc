@@ -271,6 +271,8 @@ let g:NERDTreeDirArrowCollapsible='▼'
 " 如果不指定python解释器路径，ycm会自己搜索一个合适的(与编译ycm时使用的python版本匹配)
 " let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
 "" 停止提示是否载入本地ycm_extra_conf文件
+" YCM提供的跳跃功能采用了vim的jumplist，往前跳和往后跳的快捷键为Ctrl+O以及Ctrl+I
+
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '✹'
