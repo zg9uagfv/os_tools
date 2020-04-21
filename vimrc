@@ -1,483 +1,367 @@
-set nocompatible            "不兼容vi
-filetype off
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
-set rtp+=~/.vim/bundle/vundle             " 将vundle路径添加到插件vim路径
+"   .  . .  .  . .  . S@t.. .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  .  . .  ..
+"    .     ..t%SXSS%:;t.X8S% .   .      .       .       .       .       .       .       .       .       .       .       .
+"      . %St8;8:X;8:8:8%8;%%:@S:    . .    . .    ....    .  .    .  .    .  .    .  .    .  .    .  .    .  .    .  ....
+"  .    8: %.;t;S;%@88:X.8X8%;8S t@@%   .  %@@t  .X88X .      .       .   %@@@@@@@@@X:  .     .       .       .       .  
+"    ..X.;X%8t8%8ttX.88;8.8%:;% ;8:SX%.   SX.8S.  St88:  .  .   .  .    ..XS.@%SSS88S@:. X@@%  . . .    .  .    .  ......
+"   . X;:;8SS888;8tt;8:8:8; t:t8S 8:Xt.  :8888: .%888:.  .SSSSSSSSSSS%:  .S888t   @@8X: .%.88  .SSt  .:SS;  .%SSSSSSSS%. 
+"    :t8 :;X8S;8.8S;8S.8.t8:%8XS.. S8.8:.S8;8;  :@;@88 . S:88 X.88@88:@t..%S.  .. X;8@: :%:;8. X%:X;. 8;.;  %S8@XXSXSS8..
+"  .t88; X;8S8888;8S8t 8S88SSStt:. @.%8St;@8X  . t .8S   S:88:%888%;8t8:..S.S@%SSS8S88t .% @;  X:.X.  88t :.t@t8@ .......
+"  8; :888XSStS;88;88X%;;tt::;;8@ ..%X88:88Xt    .S@.::. S@8% X8.@;S888X .%;88SSSS.SX.:. 8S88: @;88t. 8.S8  t;@8@88@88S..
+"  S. :tX: ;%8S8 : .::. %8t  %S 8.  @88t8 8t.  . . .@8;  8888 @@%S;t8.8S .:SX8; .:.... . S8; ..8888:..8:8@: ;St@@888.@@..
+"    :8:;888888 .; .     8%8@       .8X.@8X  .    X%8@  .t@8S X88X:%888X .@8@8t  ..  .   SX%X .X;;S@%tS8; ;..SttSXS8888S.
+"    t.8XX;;8X% XX.  .    %8X8;   . :tX8@t     .  t8X8:  %@@S X8@@:t8tXt...:%t..       . X:8X  X8@@88@888t. %88t888 888t.
+"  .    :8;S: . S@.       t8;8:: .   .;:;. . .   .%@%:   t%%; .%%;..: t. .;  :  . . .    %;8.  ;X;X%.:.: t  ;t  ;:: :t;..
+"     :%@t%8   88.  .  .  :: . ..   .   .          .   . ..  .      ..   .    .       . . ... .   . .   .        ..      
+"      .. 8888   ..      ...   . .    .   .  . .     .   ..    .  .    .        .   .   . ..    .  .  .   .  . .     ....
+"
+" Author: chxuan <787280310@qq.com>
+" Repository: https://github.com/chxuan/vimplus
+" Create Date: 2016-04-10
+" License: MIT
 
-" pass a path where Vundle should install plugins
-let path = '~/.vim/bundle/Plugin'
-call vundle#rc(path)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 通用设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = ","      " 定义<leader>键
+set nocompatible         " 设置不兼容原始vi模式
+filetype on              " 设置开启文件类型侦测
+filetype plugin on       " 设置加载对应文件类型的插件
+set noeb                 " 关闭错误的提示
+syntax enable            " 开启语法高亮功能
+syntax on                " 自动语法高亮
+set t_Co=256             " 开启256色支持
+set cmdheight=2          " 设置命令行的高度
+set showcmd              " select模式下显示选中的行数
+set ruler                " 总是显示光标位置
+set laststatus=2         " 总是显示状态栏
+set number               " 开启行号显示
+set cursorline           " 高亮显示当前行
+set whichwrap+=<,>,h,l   " 设置光标键跨行
+set ttimeoutlen=0        " 设置<ESC>键响应时间
+set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
 
-" 将Vundle加入到bundle
-Plugin 'gmarik/vundle'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 代码缩进和排版
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoindent           " 设置自动缩进
+set cindent              " 设置使用C/C++语言的自动缩进方式
+set cinoptions=g0,:0,N-s,(0    " 设置C/C++语言的具体缩进方式
+set smartindent          " 智能的选择对其方式
+filetype indent on       " 自适应不同语言的智能缩进
+set expandtab            " 将制表符扩展为空格
+set tabstop=4            " 设置编辑时制表符占用空格数
+set shiftwidth=4         " 设置格式化时制表符占用空格数
+set softtabstop=4        " 设置4个空格为制表符
+set smarttab             " 在行和段开始处使用制表符
+set nowrap               " 禁止折行
+set backspace=2          " 使用回车键正常处理indent,eol,start等
+set sidescroll=10        " 设置向右滚动字符数
+set nofoldenable         " 禁用折叠代码
 
-filetype on                           " enable filetype detection
-filetype indent plugin on                 " 安装完后打开文件类型
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 代码补全
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu             " vim自身命名行模式智能补全
+set completeopt-=preview " 补全时不显示窗口，只显示补全列表
 
-"-------------------------------------------------------------------------------------------
-"DongH's Plugins here:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 搜索设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set hlsearch            " 高亮显示搜索结果
+set incsearch           " 开启实时搜索功能
+set ignorecase          " 搜索时大小写不敏感
 
-"plugin:
-"Programming for public:
-"提供单个源代码文件的函数列表之类
-Plugin 'taglist.vim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 缓存设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup            " 设置不备份
+set noswapfile          " 禁止生成临时文件
+set autoread            " 文件在vim之外修改过，自动重新读入
+set autowrite           " 设置自动保存
+set confirm             " 在处理未保存或只读文件的时候，弹出确认
 
-"文件浏览器
-Plugin 'The-NERD-tree'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 编码设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+set termencoding=utf-8
+set encoding=utf8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-"提供快速注释/反注释代码块的功能
-Plugin 'The-NERD-Commenter'
-
-"添加doxygen注释
-Plugin 'DoxygenToolkit.vim'
-
-"提供超强的快速生成代码段的功能
-"" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-
-"给不同的单词高亮，表明不同的变量时很有用
-Plugin 'VirMark.vim'
-
-"用来帮助缩进对齐的插件，需要的时候会很好用
-"Plugin 'Indent Guides'
-
-"C/C++
-"提供C++代码的自动补全功能
-"安装依赖
-"sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
-"cd ~/.vim/bundle
-"git clone https://github.com/Valloric/YouCompleteMe.git
-"cd YouCompleteMe
-"git submodule update --init --recursive
-"./install.sh --clang-completer
-"Plugin 'Valloric/YouCompleteMe'
-
-"generates a list of compiler flags from a project with an arbitrary build system
-Plugin 'rdnetto/YCM-Generator'
-
-"语法检查
-Plugin 'scrooloose/syntastic'
-
-"自动检测文件编码，也可以手动选择文件编码
-Plugin 'FencView.vim'
-
-"提供命令模式下的补全，可以补全缓冲区中出现过的单词
-Plugin 'CmdlineComplete'
-
-"#用全新的方式在文档中高效的移动光标，革命性的突破
-Plugin 'EasyMotion'
-
-"让代码更加易于纵向排版，以=或,符号对齐
-Plugin 'Tabular'
-
-"indentLine 更加美观的显示缩进对齐线
-Bundle 'Yggdroot/indentLine'
-
-"color scheme
-Plugin 'Solarized'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-
-
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'derekwyatt/vim-fswitch'
-
-"go language
-Plugin 'fatih/vim-go'
-
-"zen coding
-Plugin 'mattn/emmet-vim'
-
-"安装tagbar插件  
-Bundle 'majutsushi/tagbar'  
-
-" Fugitive: Git 集成，强烈推荐！
-Plugin 'tpope/vim-fugitive'
-" Commentary: 快速注释。
-Plugin 'tpope/vim-commentary'
- 
-" Airline: 小巧美观的状态栏。
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-  
-" Tabular: 自动对齐。
-Plugin 'godlygeek/tabular'
-
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"-------------------------------------------------------------------------------
-"set nu       "打开行号显示
-"set guifont=MonoSpace\ 30
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gvim/macvim设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 16
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
+    let system = system('uname -s')
+    if system == "Darwin\n"
+        set guifont=Droid\ Sans\ Mono\ Nerd\ Font\ Complete:h18 " 设置字体
+    else
+        set guifont=DroidSansMono\ Nerd\ Font\ Regular\ 18      " 设置字体
+    endif
+    set guioptions-=m           " 隐藏菜单栏
+    set guioptions-=T           " 隐藏工具栏
+    set guioptions-=L           " 隐藏左侧滚动条
+    set guioptions-=r           " 隐藏右侧滚动条
+    set guioptions-=b           " 隐藏底部滚动条
+    set showtabline=0           " 隐藏Tab栏
+    set guicursor=n-v-c:ver5    " 设置光标为竖线
 endif
 
-"VIM UI {
-"设置颜色、背景等
-syntax on                             " syntax highlight
-syntax enable
-" 配色方案
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 卸载默认插件UnPlug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:deregister(repo)
+  let repo = substitute(a:repo, '[\/]\+$', '', '')
+  let name = fnamemodify(repo, ':t:s?\.git$??')
+  call remove(g:plugs, name)
+endfunction
+command! -nargs=1 -bar UnPlug call s:deregister(<args>)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 插件列表
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+Plug 'chxuan/cpp-mode'
+Plug 'chxuan/vim-edit'
+Plug 'chxuan/change-colorscheme'
+Plug 'chxuan/prepare-code'
+Plug 'chxuan/vim-buffer'
+Plug 'chxuan/vimplus-startify'
+Plug 'chxuan/tagbar'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Yggdroot/LeaderF'
+Plug 'mileszs/ack.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/vim-slash'
+Plug 'junegunn/gv.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-function'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'Shougo/echodoc.vim'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'rhysd/clever-f.vim'
+Plug 'vim-scripts/indentpython.vim'
+
+" 加载自定义插件
+if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
+    source $HOME/.vimrc.custom.plugins
+endif
+
+call plug#end()  
+
+" load vim default plugin
+runtime macros/matchit.vim
+
+" 编辑vimrc相关配置文件
+nnoremap <leader>e :edit $MYVIMRC<cr>
+nnoremap <leader>vc :edit ~/.vimrc.custom.config<cr>
+nnoremap <leader>vp :edit ~/.vimrc.custom.plugins<cr>
+
+" 查看vimplus的help文件
+nnoremap <leader>h :view +let\ &l:modifiable=0 ~/.vimplus/help.md<cr>
+
+" 打开当前光标所在单词的vim帮助文档
+nnoremap <leader>H :execute ":help " . expand("<cword>")<cr>
+
+" 重新加载vimrc文件
+nnoremap <leader>s :source $MYVIMRC<cr>
+
+" 安装、更新、删除插件
+nnoremap <leader><leader>i :PlugInstall<cr>
+nnoremap <leader><leader>u :PlugUpdate<cr>
+nnoremap <leader><leader>c :PlugClean<cr>
+
+" 分屏窗口移动
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" 复制当前选中到系统剪切板
+vmap <leader><leader>y "+y
+
+" 将系统剪切板内容粘贴到vim
+nnoremap <leader><leader>p "+p
+
+" 打开文件自动定位到最后编辑的位置
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
+
+" 主题设置
 set background=dark
-colorscheme solarized
-"colorscheme molokai
-"
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+let g:onedark_termcolors=256
+colorscheme onedark
 
-" 禁止光标闪烁
-set gcr=a:block-blinkon0
+" airline
+let g:airline_theme="onedark"
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
-" 禁止显示滚动条
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
+" cpp-mode
+nnoremap <leader>y :CopyCode<cr>
+nnoremap <leader>p :PasteCode<cr>
+"nnoremap <leader>U :GoToFunImpl<cr>
+nnoremap <silent> <leader>a :Switch<cr>
+nnoremap <leader><leader>fp :FormatFunParam<cr>
+nnoremap <leader><leader>if :FormatIf<cr>
+nnoremap <leader><leader>t dd :GenTryCatch<cr>
+xnoremap <leader><leader>t d :GenTryCatch<cr>
 
-" 禁止显示菜单和工具条
-set guioptions-=m
-set guioptions-=T
+" change-colorscheme
+nnoremap <silent> <F9> :PreviousColorScheme<cr>
+inoremap <silent> <F9> <esc> :PreviousColorScheme<cr>
+nnoremap <silent> <F10> :NextColorScheme<cr>
+inoremap <silent> <F10> <esc> :NextColorScheme<cr>
+nnoremap <silent> <F11> :RandomColorScheme<cr>
+inoremap <silent> <F11> <esc> :RandomColorScheme<cr>
+nnoremap <silent> <F12> :ShowColorScheme<cr>
+inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
 
-" highlight current line
-set cursorline
+" prepare-code
+let g:prepare_code_plugin_path = expand($HOME . "/.vim/plugged/prepare-code")
 
-" show matching brackets/parenthesis
-set showmatch
+" vim-buffer
+nnoremap <silent> <c-p> :PreviousBuffer<cr>
+nnoremap <silent> <c-n> :NextBuffer<cr>
+nnoremap <silent> <leader>d :CloseBuffer<cr>
+nnoremap <silent> <leader>D :BufOnly<cr>
 
-" find as you type search
-set incsearch
+" vim-edit
+nnoremap Y :CopyText<cr>
+nnoremap D :DeleteText<cr>
+nnoremap C :ChangeText<cr>
+nnoremap <leader>r :ReplaceTo<space>
 
-" 高亮显示搜索结果
-set hlsearch
+" nerdtree
+nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1         
+let g:NERDTreeHighlightFoldersFullName = 1 
+let g:NERDTreeDirArrowExpandable='▷'
+let g:NERDTreeDirArrowCollapsible='▼'
 
-" use indents of 4 spaces
-set shiftwidth=4
-
-" 将制表符扩展为空格
-set expandtab
-
-" 设置编辑时制表符占用空格数
-set tabstop=4
-
-" 让 vim 把连续数量的空格视为一个制表符
-set softtabstop=4
-
-" auto format comment blocks
-set comments=sl:/*,mb:*,elx:*/
-
-" 总是显示状态栏
-set laststatus=2
-
-" 显示光标当前位置
-set ruler
-
-" 开启行号显示
-set number
-
-" 高亮显示当前行/列
-set cursorline
-set cursorcolumn
-
-" 代码折叠
-
-" 基于缩进或语法进行代码折叠
-"set foldmethod=syntax
-
-" 启动 vim 时关闭折叠代码
-set nofoldenable
-
-" *.cpp 和 *.h 间切换
-nmap <silent> <Leader>sw :FSHere<cr>
-
-set numberwidth=4
-
-" show the cursor position all the time
-set ruler
-
-" auto read when file is changed from outside
-set autoread
-
-" 设置一行字符宽度
-set textwidth=80
-" Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-" }
-
-
-
-" file encoding 编码{
-set encoding=utf-8
-set fileencodings=utf-8,gb18030,cp936,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1,euc-jp,utf-16le,chinese
-set fenc=utf-8 enc=utf-8 tenc=utf-8
-scriptencoding utf-8
-" disable sound on errors
-" 关闭错误提示声音
-set visualbell
-set noerrorbells
-set t_vb=
-set tm=500
-" 忽略文件类型
-set wildignore+=*.o,*.obj,*.pyc                " output objects
-set wildignore+=*.png,*.jpg,*.gif,*.ico        " image format
-set wildignore+=*.swf,*.fla                    " image format
-set wildignore+=*.mp3,*.mp4,*.avi,*.mkv        " media format
-set wildignore+=*.git*,*.hg*,*.svn*            " version control system
-set wildignore+=*sass-cache*
-set wildignore+=*.DS_Store
-set wildignore+=log/**
-set wildignore+=tmp/**
-"}
-
-" Key (re)Mappings {
-"The default leader is '\', but many people prefer ',' as it's in a standard
-"location
-let mapleader = ','
-"clearing highlighted search
-nmap <silent> <leader>/ :nohlsearch<CR>
-" Shortcuts
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-" Easier horizontal scrolling
-map zl zL
-map zh zH
-
-"=====================================================================
-"taglist option，设置taglist插件的选项，进行定制
-"=====================================================================
-
-"设置tagbar使用的ctags的插件,必须要设置对  
-let g:tagbar_ctags_bin='/usr/bin/ctags'  
-"打开文件自动 打开tagbar  
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()  
-let Tlist_Show_One_File=1      "只显示一个文件的tags
-let Tlist_Exit_OnlyWindow=1    "当taglist窗口是最后一个窗口时，退出vim
-let Tlist_Use_Right_Window=1   "taglist窗口显示在右侧
-noremap <silent> <F6> :TlistToggle<CR>      "相当于定义快捷键
-noremap <silent> <Leader>tt :TlistToggle<CR>  "定义第二个快捷键
-" 设置 tagbar 子窗口的位置出现在主编辑区的左边
-let tagbar_left=1
-" 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
-nnoremap <Leader>ilt :TagbarToggle<CR>
-" 设置标签子窗口的宽度
-let tagbar_width=32
-" tagbar 子窗口中不显示冗余帮助信息
-let g:tagbar_compact=1
-" 设置 ctags 对哪些代码标识符生成标签
-let g:tagbar_type_cpp = {
-     \ 'ctagstype' : 'c++',
-     \ 'kinds'     : [
-         \ 'c:classes:0:1',
-         \ 'd:macros:0:1',
-         \ 'e:enumerators:0:0', 
-         \ 'f:functions:0:1',
-         \ 'g:enumeration:0:1',
-         \ 'l:local:0:1',
-         \ 'm:members:0:1',
-         \ 'n:namespaces:0:1',
-         \ 'p:functions_prototypes:0:1',
-         \ 's:structs:0:1',
-         \ 't:typedefs:0:1',
-         \ 'u:unions:0:1',
-         \ 'v:global:0:1',
-         \ 'x:external:0:1'
-     \ ],
-     \ 'sro'        : '::',
-     \ 'kind2scope' : {
-         \ 'g' : 'enum',
-         \ 'n' : 'namespace',
-         \ 'c' : 'class',
-         \ 's' : 'struct',
-         \ 'u' : 'union'
-     \ },
-     \ 'scope2kind' : {
-         \ 'enum'      : 'g',
-         \ 'namespace' : 'n',
-         \ 'class'     : 'c',
-         \ 'struct'    : 's',
-         \ 'union'     : 'u'
-     \ }
-\ }
-
-"==========================================================================
-"BufExplore setting，设置bufexplorer插件的选项，进行定制
-"==========================================================================
-let g:BufExplorerShowRelativePath=1
-let g:BufExplorerSplitRight=0
-let g:BufExplorerSplitVertical=1
-let g:BufExplorerSplitBelow=0
-noremap <silent> <Leader>be :BufExplorer<CR>
-noremap <silent> <Leader>bs :BufExplorerHorizontalSplit<CR>
-noremap <silent> <Leader>bv :BufExplorerVerticalSplit<CR>
-
-"=========================================
-"NERDTree settings
-"" ---------- NERDTree [智能文件浏览器] ----------------
-"=========================================
-" :NERDTree              --启动NERDTree插件
-"o[小写]                 --切换当前文件或目录的打开、关闭状态
-" u                      --打开上层目录
-"p[小写]                 --返回上层目录
-" P [大写]               --返回根目录
-"K                       --转到当前目录第一个节点
-" J                      --转到当前目录最后的节点
-"m                       --显示文件系统菜单     [增、删、移]
-" ?                      --弹出帮助菜单
-"q                       --退出该插件
-"nmap <silent> <leader>t :NERDTree<cr>
-noremap <silent> <F2> :NERDTree<CR>      "相当于定义快捷键
-" 工程文件浏览
-" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
-nmap <Leader>fl :NERDTreeToggle<CR>
-" 设置 NERDTree 子窗口宽度
-let NERDTreeWinSize=22
-" 设置 NERDTree 子窗口位置
-let NERDTreeWinPos="right"
-" 显示隐藏文件
-let NERDTreeShowHidden=1
-" NERDTree 子窗口中不显示冗余帮助信息
-let NERDTreeMinimalUI=1
-" 删除文件时自动删除文件对应 buffer
-let NERDTreeAutoDeleteBuffer=1
-
-
-"=========================================
-"NERD Commenter settings
-"=========================================
-",ca，在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
-",cc，注释当前行
-",c，切换注释/非注释状态
-",cs，以”性感”的方式注释
-",cA，在当前行尾添加注释符，并进入Insert模式
-",cu，取消注释
-"Normal模式下，几乎所有命令前面都可以指定行数
-"Visual模式下执行命令，会对选中的特定区块进行注释/反注释
-
-set nocp
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DoxygenToolkit setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:DoxygenToolkit_undocTag="DOXIGEN_SKIP_BLOCK"
-" For example, my .vimrc contains:
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="xxx"
-let g:DoxygenToolkit_licenseTag="xxx"
-let g:DoxygenToolkit_briefTag_funcName="yes"
-let g:doxygen_enhanced_color=1
-
-"}
-" ycm_config{
-" for ycm
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>*'
-nmap <F4> :YcmDiags<CR>
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-" 模板补全
-" UltiSnips 的 tab 键与 YCM 冲突，重新设定
-let g:UltiSnipsSnippetDirectories=["mysnippets"]
-let g:UltiSnipsExpandTrigger="<leader><tab>"
-let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
-let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
-
-" YCM 补全菜单配色
-" 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-" 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
-
-" 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
-let g:ycm_confirm_extra_conf=0
-
-" 从第一个键入字符就开始罗列匹配项
-let g:ycm_min_num_of_chars_for_completion=1
-
-" 禁止缓存匹配项，每次都重新生成匹配项
-let g:ycm_cache_omnifunc=0
-"}
-"
-"
-"
-"
-"" ################### 自动补全 ###################
-
-" 代码自动补全
-"迄今为止用到的最好的自动VIM自动补全插件
-"重启 :YcmRestartServer
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
-let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+" YCM
+" 如果不指定python解释器路径，ycm会自己搜索一个合适的(与编译ycm时使用的python版本匹配)
+" let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
+"" 停止提示是否载入本地ycm_extra_conf文件
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = '✗'
+let g:ycm_warning_symbol = '✹'
+" 语法关键字补全
+let g:ycm_seed_identifiers_with_syntax = 1 
+" 在注释输入中也能补全
+let g:ycm_complete_in_comments = 1 
+" 在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1 
+" 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers =  {
+            \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+            \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+            \             're!\[.*\]\s'],
+            \   'ocaml' : ['.', '#'],
+            \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+            \   'perl' : ['->'],
+            \   'php' : ['->', '::'],
+            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'ruby' : ['.', '::'],
+            \   'lua' : ['.', ':'],
+            \   'erlang' : [':'],
+            \ }
+nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
+" 已经使用cpp-mode插件提供的转到函数实现的功能
+nnoremap <leader>i :YcmCompleter GoToDefinition<cr> 
+nnoremap <leader>o :YcmCompleter GoToInclude<cr>
+nnoremap <leader>ff :YcmCompleter FixIt<cr>
+nmap <F5> :YcmDiags<cr>
 
-"let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+" tagbar
+let g:tagbar_width = 30
+nnoremap <silent> <leader>t :TagbarToggle<cr>
 
-" 跳转到定义处, 分屏打开
-let g:ycm_goto_buffer_command = 'horizontal-split'
-" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+" incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
-let g:ycm_global_ycm_extra_conf = "/home/dl/.vim/bundle/Plugin/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+" vim-easymotion
+let g:EasyMotion_smartcase = 1
+map <leader>w <Plug>(easymotion-bd-w)
+nmap <leader>w <Plug>(easymotion-overwin-w)
+
+" nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ 'Ignored'   : '☒',
+            \ "Unknown"   : "?"
+            \ }
+
+" LeaderF
+nnoremap <leader>f :LeaderfFile ~<cr>
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg','.vscode','.wine','.deepinwine','.oh-my-zsh'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+            \}
+let g:Lf_UseCache = 0
+
+" ack
+nnoremap <leader>F :Ack!<space>
+
+" echodoc.vim
+let g:echodoc_enable_at_startup = 1
+
+" tabular
+nnoremap <leader>l :Tab /\|<cr>
+nnoremap <leader>= :Tab /=<cr>
+
+" vim-smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" gv
+nnoremap <leader>g :GV<cr>
+nnoremap <leader>G :GV!<cr>
+nnoremap <leader>gg :GV?<cr>
+
+" 加载自定义配置
+if filereadable(expand($HOME . '/.vimrc.custom.config'))
+    source $HOME/.vimrc.custom.config
+endif
 
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-"let g:go_highlight_build_constraints = 1
-
-"#安装vim-airline
-let g:airline_theme="luna"
-"这个是安装字体后 必须设置此项"
-"let g:airline_theme="kolor"
-let g:airline_powerline_fonts = 1 
-set laststatus=2  "永远显示状态栏
-set t_Co=256      "在windows中用xshell连接打开vim可以显示色彩
-"打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
-let g:airline#extensions#tabline#enabled = 1 
-let g:airline#extensions#tabline#buffer_nr_show = 1 
-
-"设置切换Buffer快捷键"
-nnoremap <C-N> :bn<CR>
-nnoremap <C-P> :bp<CR>
-
-" 关闭状态显示空白符号计数,这个对我用处不大"
-let g:airline#extensions#whitespace#enabled = 0 
-let g:airline#extensions#whitespace#symbol = '!'
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
