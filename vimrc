@@ -23,6 +23,7 @@
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","      " 定义<leader>键
+0
 set nocompatible         " 设置不兼容原始vi模式
 filetype on              " 设置开启文件类型侦测
 filetype plugin on       " 设置加载对应文件类型的插件
@@ -124,7 +125,6 @@ command! -nargs=1 -bar UnPlug call s:deregister(<args>)
 call plug#begin('~/.vim/plugged')
 
 Plug 'chxuan/cpp-mode'
-Plug 'chxuan/vim-edit'
 Plug 'chxuan/change-colorscheme'
 Plug 'chxuan/prepare-code'
 Plug 'chxuan/vim-buffer'
@@ -160,7 +160,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'rhysd/clever-f.vim'
 Plug 'vim-scripts/indentpython.vim'
-
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " 加载自定义插件
 if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
     source $HOME/.vimrc.custom.plugins
@@ -199,8 +200,15 @@ nnoremap <c-l> <c-w>l
 " 复制当前选中到系统剪切板
 vmap <leader><leader>y "+y
 
+
 " 将系统剪切板内容粘贴到vim
 nnoremap <leader><leader>p "+p
+
+"fzf 
+" 搜索当前单词，依赖 https://github.com/ggreer/the_silver_searcher
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+" 搜索文件
+nnoremap <silent> <c-p> :Files <CR>
 
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
@@ -225,7 +233,7 @@ let g:airline_right_alt_sep = ''
 " cpp-mode
 nnoremap <leader>y :CopyCode<cr>
 nnoremap <leader>p :PasteCode<cr>
-"nnoremap <leader>U :GoToFunImpl<cr>
+nnoremap <leader>U :GoToFunImpl<cr>
 nnoremap <silent> <leader>a :Switch<cr>
 nnoremap <leader><leader>fp :FormatFunParam<cr>
 nnoremap <leader><leader>if :FormatIf<cr>
@@ -251,12 +259,6 @@ nnoremap <silent> <c-n> :NextBuffer<cr>
 nnoremap <silent> <leader>d :CloseBuffer<cr>
 nnoremap <silent> <leader>D :BufOnly<cr>
 
-" vim-edit
-nnoremap Y :CopyText<cr>
-nnoremap D :DeleteText<cr>
-nnoremap C :ChangeText<cr>
-nnoremap <leader>r :ReplaceTo<space>
-
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeFileExtensionHighlightFullName = 1
@@ -270,19 +272,12 @@ let g:NERDTreeDirArrowCollapsible='▼'
 " YCM
 " 如果不指定python解释器路径，ycm会自己搜索一个合适的(与编译ycm时使用的python版本匹配)
 " let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
-"" 停止提示是否载入本地ycm_extra_conf文件
-" YCM提供的跳跃功能采用了vim的jumplist，往前跳和往后跳的快捷键为Ctrl+O以及Ctrl+I
-
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_confirm_extra_conf = 0 
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '✹'
-" 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax = 1 
-" 在注释输入中也能补全
 let g:ycm_complete_in_comments = 1 
-" 在字符串输入中也能补全
 let g:ycm_complete_in_strings = 1 
-" 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers =  {
             \   'c' : ['->', '.','re![_a-zA-z0-9]'],
@@ -297,12 +292,12 @@ let g:ycm_semantic_triggers =  {
             \   'lua' : ['.', ':'],
             \   'erlang' : [':'],
             \ }
-nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
+ nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 " 已经使用cpp-mode插件提供的转到函数实现的功能
-nnoremap <leader>i :YcmCompleter GoToDefinition<cr> 
-nnoremap <leader>o :YcmCompleter GoToInclude<cr>
-nnoremap <leader>ff :YcmCompleter FixIt<cr>
-nmap <F5> :YcmDiags<cr>
+" nnoremap <leader>i :YcmCompleter GoToDefinition<cr> 
+ nnoremap <leader>o :YcmCompleter GoToInclude<cr>
+ nnoremap <leader>ff :YcmCompleter FixIt<cr>
+ nmap <F5> :YcmDiags<cr>
 
 " tagbar
 let g:tagbar_width = 30
