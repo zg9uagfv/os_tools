@@ -20,6 +20,9 @@ sudo apt install chrome-gnome-shell
 #---mathpix-snipping-tool---#截图并生成Markdown的数学公式
 https://snapcraft.io/mathpix-snipping-tool
 
+# mac主题
+http://ubuntuhandbook.org/index.php/2020/01/install-mac-os-mojave-theme-ubuntu-19-10/
+
 #v2raya
 https://github.com/mzz2017/V2RayA/wiki/Usage#debianubuntu
 
