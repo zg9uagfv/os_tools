@@ -13,6 +13,15 @@
   conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
   
   conda config --set show_channel_urls yes
+  
+## git提速
+
+git config --global http.proxy socks5://127.0.0.1:1080
+git config --global https.proxy socks5://127.0.0.1:1080
+
+/etc/hosts
+151.101.72.249 http://global-ssl.fastly.Net
+192.30.253.112 http://github.com
 
 ## .bashrc文件中加入一下几行代码
   
