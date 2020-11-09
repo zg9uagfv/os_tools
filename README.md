@@ -16,12 +16,14 @@
   
 ## git提速
 
-git config --global http.proxy socks5://127.0.0.1:1080
-git config --global https.proxy socks5://127.0.0.1:1080
+  git config --global http.proxy socks5://127.0.0.1:1080
 
-/etc/hosts
-151.101.72.249 http://global-ssl.fastly.Net
-192.30.253.112 http://github.com
+  git config --global https.proxy socks5://127.0.0.1:1080
+
+  /etc/hosts
+
+  151.101.72.249 http://global-ssl.fastly.Net
+  
 
 ## .bashrc文件中加入一下几行代码
   
