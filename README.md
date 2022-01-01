@@ -142,3 +142,6 @@ cd ~/.local/share/Zeal/Zeal/docsets/
 curl -L -O https://github.com/ppwwyyxx/dash-docset-tensorflow/releases/download/1.xx.xx/TensorFlow-1.xx.xx.tgz
 
 tar -xzf TensorFlow-1.xx.0.tgz
+
+### tmux
+https://github.com/gpakosz/.tmux
