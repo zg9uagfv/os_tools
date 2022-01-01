@@ -58,6 +58,8 @@ $ source ~/.bash_profile
 
 ## iTerm2
 启动 iTerm2 后按 ⌘+enter 全屏，然后 ⌘+\ 隐藏它，这时候就可以做别的事情去了。任何时间想再用 iTerm2 只需要按 ⌘+\ 即可
+https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjAzZTg0YWVkNGVmNDQzMTAxNGU4NjE3NTY3ODY0YzRlZmFhYWVkZTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDEwMTcxODgsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMDEyODIwMzY0MDkxMTE2MTMwMiIsImVtYWlsIjoiemc5dWFnZnZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJoYW8gZG9uIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdpU25UVjRMS3pTRVk5X2g4emxLdmpla0xfWldFSGNVQzZOWlJvM3J3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6ImhhbyIsImZhbWlseV9uYW1lIjoiZG9uIiwiaWF0IjoxNjQxMDE3NDg4LCJleHAiOjE2NDEwMjEwODgsImp0aSI6ImUyOTQ3ZTc1NjkzYzI2ZWIwMWIyNzQ1OGFiMTcyZWYzNmVmZWI2ZTEifQ.JVZHGdPE7_4HtEZR0X-zLgGqRjvS-QAvOa6UB1xT4aaqldAEnf72ZsuQ5JwsTTgNMeETGegIp23HmZws1jwG6m8MIsx1SkKPl7G10YbZqBoeC4XUkOZSc1c5Cb5bRmcw_mSOD5zzOpBJ7uzTzQaU7-VIJsl2y8Ah-VmeVrhKMmed8rhrjS2rEHwZacRhZYfndyqJKqHXv5agVsMMxf3XVufNztHO3PSzDnhxu526pDNg1zgz3ZCojmykfWffz8vYYDvnbzIrfPW1bkBc-DzIZC9_SFKfdgGajG-9QF73bDhzAJj9MLrTKjqdheq4W3B1GFSqmoZ1lMWvl__qwSep2A
+
 
 ## Alfred
 
@@ -69,5 +71,14 @@ $ source ~/.bash_profile
 
 ## Convert images to LaTeX
 https://mathpix.com/
+
+## rectangle
+分屏工具
+
+## Jolt of Caffeine
+不息屏幕
+
+## Beyond Compare
+代码比较
 
 
